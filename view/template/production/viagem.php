@@ -1,8 +1,16 @@
 <?php
 include("../../verificador_sessao.php");
 verificaCredenciais("Administrador");
-?>
 
+require_once("../../../controller/ViagemController.php");
+
+
+$ViagemController = ViagemController::getInstance();
+$locais = $ViagemController->getViagemPor("id");
+
+
+
+?>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -132,7 +140,7 @@ verificaCredenciais("Administrador");
                   <li><a><i class="fa fa-map-marker"></i>Locais <span class="fa fa-chevron-down"></span></a>
                         <ul class="nav child_menu">
                             <li><a href="locais.php">Editar Locais</a></li>
-                            <li><a href="inserir_local.php">Inserir Local</a></li>
+                            <li><a href="fixed_footer.html">Fixed Footer</a></li>
                         </ul>
                   </li>
                 </ul>
@@ -261,10 +269,9 @@ verificaCredenciais("Administrador");
           <div class="">
             <div class="page-title">
               <div class="title_left">
-                <h3>INICIO<small></small></h3>
+                <h3>Tablela de Locais <small>Terminais que nossa companhia opera.</small></h3>
               </div>
-			
-				 <br>
+
               <div class="title_right">
                 <div class="col-md-5 col-sm-5 col-xs-12 form-group pull-right top_search">
                   <div class="input-group">
@@ -273,33 +280,79 @@ verificaCredenciais("Administrador");
                       <button class="btn btn-default" type="button">Go!</button>
                     </span>
                   </div>
-				     <br>
-			            </div>
-              </div>
-            </div>
-			  <br>
-			  <h1 style="color:blue;">
-			  <a href="locais.php"> Local</a></li>
-			   <br>
-			  <a href="viagem.php"> Viagem</a></li>
-				</h1>
-
-  
-
-     
-
-
-
-              <div class="clearfix"></div>
-
-                          </tr>
-                        </tbody>
-                      </table>
-                    </div>
-                  </div>
                 </div>
               </div>
             </div>
+
+            <div class="clearfix"></div>
+
+            <div class="row">
+              <div class="col-md-6 col-sm-6 col-xs-12">
+                <div class="x_panel">
+                  <div class="x_title">
+                    <h2>Locais <small></small></h2>
+                    <ul class="nav navbar-right panel_toolbox">
+                      <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+                      </li>
+                      <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
+                        <ul class="dropdown-menu" role="menu">
+                          <li><a href="#">Settings 1</a>
+                          </li>
+                          <li><a href="#">Settings 2</a>
+                          </li>
+                        </ul>
+                      </li>
+                      <li><a class="close-link"><i class="fa fa-close"></i></a>
+                      </li>
+                    </ul>
+                    <div class="clearfix"></div>
+                  </div>
+                  <div class="x_content">
+
+                    <table class="table">
+                      <thead>
+                        <tr>
+                          <th>Código</th>
+                          <th>CPF do Motorista</th>
+                          <th>Placa do Ónibus</th>
+                          <th>Hora de saida</th>
+						  <th>Hora de chegada</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tbody>
+<?php
+
+foreach($locais as $v){
+    echo "<tr>";
+    foreach($v as $vv){
+        echo "<td>{$vv}</td>";
+    }
+    echo "<tr>";
+}
+echo "</table>";
+?>
+                      </tbody>
+                    </table>
+
+                  </div>
+                </div>
+              </div>
+
+
+
+                      </tbody>
+                    </table>
+
+                  </div>
+                </div>
+              </div>
+               
+              <div class="clearfix"></div>
+
+
+             </div>
           </div>
         </div>
         <!-- /page content -->

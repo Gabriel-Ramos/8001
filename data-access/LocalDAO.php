@@ -28,4 +28,7 @@ class LocalDAO extends DataAccessObject{
 
     }
 
-}
+} 
+
+
+?>

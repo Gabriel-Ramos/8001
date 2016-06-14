@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.3.11
+-- version 4.5.1
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: 12-Jun-2016 às 11:40
--- Versão do servidor: 5.6.24
--- PHP Version: 5.6.8
+-- Generation Time: Jun 14, 2016 at 10:45 PM
+-- Server version: 10.1.13-MariaDB
+-- PHP Version: 5.6.21
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -14,7 +14,7 @@ SET time_zone = "+00:00";
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
 /*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!40101 SET NAMES utf8 */;
+/*!40101 SET NAMES utf8mb4 */;
 
 --
 -- Database: `8001`
@@ -23,16 +23,16 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `administrador`
+-- Table structure for table `administrador`
 --
 
-CREATE TABLE IF NOT EXISTS `administrador` (
+CREATE TABLE `administrador` (
   `cpf` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `senha` varchar(255) COLLATE utf8_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Extraindo dados da tabela `administrador`
+-- Dumping data for table `administrador`
 --
 
 INSERT INTO `administrador` (`cpf`, `senha`) VALUES
@@ -41,10 +41,10 @@ INSERT INTO `administrador` (`cpf`, `senha`) VALUES
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `bilhete`
+-- Table structure for table `bilhete`
 --
 
-CREATE TABLE IF NOT EXISTS `bilhete` (
+CREATE TABLE `bilhete` (
   `id_viagem` int(11) NOT NULL,
   `poltrona` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `cpf` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
@@ -55,10 +55,10 @@ CREATE TABLE IF NOT EXISTS `bilhete` (
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `cliente`
+-- Table structure for table `cliente`
 --
 
-CREATE TABLE IF NOT EXISTS `cliente` (
+CREATE TABLE `cliente` (
   `cpf` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `senha` varchar(255) COLLATE utf8_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
@@ -66,10 +66,10 @@ CREATE TABLE IF NOT EXISTS `cliente` (
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `localidade`
+-- Table structure for table `localidade`
 --
 
-CREATE TABLE IF NOT EXISTS `localidade` (
+CREATE TABLE `localidade` (
   `cod` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `nome` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `cidade` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
@@ -77,7 +77,7 @@ CREATE TABLE IF NOT EXISTS `localidade` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Extraindo dados da tabela `localidade`
+-- Dumping data for table `localidade`
 --
 
 INSERT INTO `localidade` (`cod`, `nome`, `cidade`, `posicao_global`) VALUES
@@ -92,10 +92,10 @@ INSERT INTO `localidade` (`cod`, `nome`, `cidade`, `posicao_global`) VALUES
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `motorista`
+-- Table structure for table `motorista`
 --
 
-CREATE TABLE IF NOT EXISTS `motorista` (
+CREATE TABLE `motorista` (
   `cpf` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `matricula` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `cnh` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
@@ -105,7 +105,7 @@ CREATE TABLE IF NOT EXISTS `motorista` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Extraindo dados da tabela `motorista`
+-- Dumping data for table `motorista`
 --
 
 INSERT INTO `motorista` (`cpf`, `matricula`, `cnh`, `emissao_cnh`, `validadade_cnh`, `data_admissao`) VALUES
@@ -114,10 +114,10 @@ INSERT INTO `motorista` (`cpf`, `matricula`, `cnh`, `emissao_cnh`, `validadade_c
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `pessoa`
+-- Table structure for table `pessoa`
 --
 
-CREATE TABLE IF NOT EXISTS `pessoa` (
+CREATE TABLE `pessoa` (
   `cpf` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `nome` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `data_nascimento` date NOT NULL,
@@ -132,7 +132,7 @@ CREATE TABLE IF NOT EXISTS `pessoa` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Extraindo dados da tabela `pessoa`
+-- Dumping data for table `pessoa`
 --
 
 INSERT INTO `pessoa` (`cpf`, `nome`, `data_nascimento`, `cep`, `endereco`, `complemento`, `bairro`, `cidade`, `estado`, `ddd`, `telefone`) VALUES
@@ -146,10 +146,10 @@ INSERT INTO `pessoa` (`cpf`, `nome`, `data_nascimento`, `cep`, `endereco`, `comp
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `trecho`
+-- Table structure for table `trecho`
 --
 
-CREATE TABLE IF NOT EXISTS `trecho` (
+CREATE TABLE `trecho` (
   `id` int(11) NOT NULL,
   `distancia` int(11) NOT NULL,
   `itinerario` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
@@ -161,10 +161,10 @@ CREATE TABLE IF NOT EXISTS `trecho` (
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `veiculo`
+-- Table structure for table `veiculo`
 --
 
-CREATE TABLE IF NOT EXISTS `veiculo` (
+CREATE TABLE `veiculo` (
   `Placa` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `modelo` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `fabricante` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
@@ -179,13 +179,20 @@ CREATE TABLE IF NOT EXISTS `veiculo` (
   `posicao_global` varchar(255) COLLATE utf8_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
+--
+-- Dumping data for table `veiculo`
+--
+
+INSERT INTO `veiculo` (`Placa`, `modelo`, `fabricante`, `ano`, `numero_de_poltronas`, `tipo_assento`, `possui_banheiro`, `possui_ac`, `possui_frigobar`, `possui_wifi`, `possui_dvd`, `posicao_global`) VALUES
+('PNG1234', 'FiatBus', 'Fiat', '2010', 40, 'Semi-Leito', 1, 1, 1, 1, '0', '');
+
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `viagem`
+-- Table structure for table `viagem`
 --
 
-CREATE TABLE IF NOT EXISTS `viagem` (
+CREATE TABLE `viagem` (
   `id` int(11) NOT NULL,
   `cpf_motorista` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `placa_veiculo` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
@@ -193,13 +200,20 @@ CREATE TABLE IF NOT EXISTS `viagem` (
   `hora_chegada` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
+--
+-- Dumping data for table `viagem`
+--
+
+INSERT INTO `viagem` (`id`, `cpf_motorista`, `placa_veiculo`, `hora_saida`, `hora_chegada`) VALUES
+(1234567891, '14345989779', 'PNG1234', '2016-06-07 05:00:00', '2016-06-08 00:00:00');
+
 -- --------------------------------------------------------
 
 --
--- Estrutura da tabela `viagem_trecho`
+-- Table structure for table `viagem_trecho`
 --
 
-CREATE TABLE IF NOT EXISTS `viagem_trecho` (
+CREATE TABLE `viagem_trecho` (
   `ordem` smallint(6) NOT NULL,
   `id_viagem` int(11) NOT NULL,
   `id_trecho` int(11) NOT NULL
@@ -219,7 +233,10 @@ ALTER TABLE `administrador`
 -- Indexes for table `bilhete`
 --
 ALTER TABLE `bilhete`
-  ADD PRIMARY KEY (`id_viagem`,`poltrona`), ADD KEY `cliente_bilhete_fk` (`cpf`), ADD KEY `bilhete_trecho_embarque_fk` (`trecho_de_embarque`), ADD KEY `bilhete_trecho_desembarque_fk` (`trecho_de_desembarque`);
+  ADD PRIMARY KEY (`id_viagem`,`poltrona`),
+  ADD KEY `cliente_bilhete_fk` (`cpf`),
+  ADD KEY `bilhete_trecho_embarque_fk` (`trecho_de_embarque`),
+  ADD KEY `bilhete_trecho_desembarque_fk` (`trecho_de_desembarque`);
 
 --
 -- Indexes for table `cliente`
@@ -249,7 +266,9 @@ ALTER TABLE `pessoa`
 -- Indexes for table `trecho`
 --
 ALTER TABLE `trecho`
-  ADD PRIMARY KEY (`id`), ADD KEY `local_trecho_saida_fk` (`local_saida`), ADD KEY `local_trecho_destino_fk` (`local_destino`);
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `local_trecho_saida_fk` (`local_saida`),
+  ADD KEY `local_trecho_destino_fk` (`local_destino`);
 
 --
 -- Indexes for table `veiculo`
@@ -261,13 +280,17 @@ ALTER TABLE `veiculo`
 -- Indexes for table `viagem`
 --
 ALTER TABLE `viagem`
-  ADD PRIMARY KEY (`id`), ADD KEY `motorista_viagem_fk` (`cpf_motorista`), ADD KEY `viagem_veiculo_fk` (`placa_veiculo`);
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `motorista_viagem_fk` (`cpf_motorista`),
+  ADD KEY `viagem_veiculo_fk` (`placa_veiculo`);
 
 --
 -- Indexes for table `viagem_trecho`
 --
 ALTER TABLE `viagem_trecho`
-  ADD PRIMARY KEY (`ordem`,`id_viagem`,`id_trecho`), ADD KEY `viagem_trecho_viagem_fk` (`id_viagem`), ADD KEY `viagem_trecho_trecho_fk` (`id_trecho`);
+  ADD PRIMARY KEY (`ordem`,`id_viagem`,`id_trecho`),
+  ADD KEY `viagem_trecho_viagem_fk` (`id_viagem`),
+  ADD KEY `viagem_trecho_trecho_fk` (`id_trecho`);
 
 --
 -- AUTO_INCREMENT for dumped tables
@@ -282,57 +305,57 @@ ALTER TABLE `trecho`
 -- AUTO_INCREMENT for table `viagem`
 --
 ALTER TABLE `viagem`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1234567892;
 --
 -- Constraints for dumped tables
 --
 
 --
--- Limitadores para a tabela `administrador`
+-- Constraints for table `administrador`
 --
 ALTER TABLE `administrador`
-ADD CONSTRAINT `pessoa_administrador_fk` FOREIGN KEY (`cpf`) REFERENCES `pessoa` (`cpf`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+  ADD CONSTRAINT `pessoa_administrador_fk` FOREIGN KEY (`cpf`) REFERENCES `pessoa` (`cpf`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
--- Limitadores para a tabela `bilhete`
+-- Constraints for table `bilhete`
 --
 ALTER TABLE `bilhete`
-ADD CONSTRAINT `bilhete_trecho_desembarque_fk` FOREIGN KEY (`trecho_de_desembarque`) REFERENCES `trecho` (`id`) ON DELETE NO ACTION ON UPDATE CASCADE,
-ADD CONSTRAINT `bilhete_trecho_embarque_fk` FOREIGN KEY (`trecho_de_embarque`) REFERENCES `trecho` (`id`) ON DELETE NO ACTION ON UPDATE CASCADE,
-ADD CONSTRAINT `cliente_bilhete_fk` FOREIGN KEY (`cpf`) REFERENCES `cliente` (`cpf`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+  ADD CONSTRAINT `bilhete_trecho_desembarque_fk` FOREIGN KEY (`trecho_de_desembarque`) REFERENCES `trecho` (`id`) ON DELETE NO ACTION ON UPDATE CASCADE,
+  ADD CONSTRAINT `bilhete_trecho_embarque_fk` FOREIGN KEY (`trecho_de_embarque`) REFERENCES `trecho` (`id`) ON DELETE NO ACTION ON UPDATE CASCADE,
+  ADD CONSTRAINT `cliente_bilhete_fk` FOREIGN KEY (`cpf`) REFERENCES `cliente` (`cpf`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
--- Limitadores para a tabela `cliente`
+-- Constraints for table `cliente`
 --
 ALTER TABLE `cliente`
-ADD CONSTRAINT `pessoa_cliente_fk` FOREIGN KEY (`cpf`) REFERENCES `pessoa` (`cpf`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+  ADD CONSTRAINT `pessoa_cliente_fk` FOREIGN KEY (`cpf`) REFERENCES `pessoa` (`cpf`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
--- Limitadores para a tabela `motorista`
+-- Constraints for table `motorista`
 --
 ALTER TABLE `motorista`
-ADD CONSTRAINT `pessoa_motorista_fk` FOREIGN KEY (`cpf`) REFERENCES `pessoa` (`cpf`) ON DELETE NO ACTION ON UPDATE NO ACTION;
+  ADD CONSTRAINT `pessoa_motorista_fk` FOREIGN KEY (`cpf`) REFERENCES `pessoa` (`cpf`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
--- Limitadores para a tabela `trecho`
+-- Constraints for table `trecho`
 --
 ALTER TABLE `trecho`
-ADD CONSTRAINT `local_trecho_destino_fk` FOREIGN KEY (`local_destino`) REFERENCES `localidade` (`cod`) ON DELETE NO ACTION ON UPDATE CASCADE,
-ADD CONSTRAINT `local_trecho_saida_fk` FOREIGN KEY (`local_saida`) REFERENCES `localidade` (`cod`) ON DELETE NO ACTION ON UPDATE CASCADE;
+  ADD CONSTRAINT `local_trecho_destino_fk` FOREIGN KEY (`local_destino`) REFERENCES `localidade` (`cod`) ON DELETE NO ACTION ON UPDATE CASCADE,
+  ADD CONSTRAINT `local_trecho_saida_fk` FOREIGN KEY (`local_saida`) REFERENCES `localidade` (`cod`) ON DELETE NO ACTION ON UPDATE CASCADE;
 
 --
--- Limitadores para a tabela `viagem`
+-- Constraints for table `viagem`
 --
 ALTER TABLE `viagem`
-ADD CONSTRAINT `motorista_viagem_fk` FOREIGN KEY (`cpf_motorista`) REFERENCES `motorista` (`cpf`) ON DELETE NO ACTION ON UPDATE CASCADE,
-ADD CONSTRAINT `viagem_veiculo_fk` FOREIGN KEY (`placa_veiculo`) REFERENCES `veiculo` (`Placa`) ON DELETE NO ACTION ON UPDATE CASCADE;
+  ADD CONSTRAINT `motorista_viagem_fk` FOREIGN KEY (`cpf_motorista`) REFERENCES `motorista` (`cpf`) ON DELETE NO ACTION ON UPDATE CASCADE,
+  ADD CONSTRAINT `viagem_veiculo_fk` FOREIGN KEY (`placa_veiculo`) REFERENCES `veiculo` (`Placa`) ON DELETE NO ACTION ON UPDATE CASCADE;
 
 --
--- Limitadores para a tabela `viagem_trecho`
+-- Constraints for table `viagem_trecho`
 --
 ALTER TABLE `viagem_trecho`
-ADD CONSTRAINT `viagem_trecho_trecho_fk` FOREIGN KEY (`id_trecho`) REFERENCES `trecho` (`id`) ON DELETE NO ACTION ON UPDATE CASCADE,
-ADD CONSTRAINT `viagem_trecho_viagem_fk` FOREIGN KEY (`id_viagem`) REFERENCES `viagem` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `viagem_trecho_trecho_fk` FOREIGN KEY (`id_trecho`) REFERENCES `trecho` (`id`) ON DELETE NO ACTION ON UPDATE CASCADE,
+  ADD CONSTRAINT `viagem_trecho_viagem_fk` FOREIGN KEY (`id_viagem`) REFERENCES `viagem` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

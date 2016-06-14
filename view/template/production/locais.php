@@ -3,8 +3,11 @@ include("../../verificador_sessao.php");
 verificaCredenciais("Administrador");
 
 require_once("../../../controller/LocalController.php");
+
+
 $localController = LocalController::getInstance();
 $locais = $localController->getLocaisPor("cidade, nome");
+
 
 
 ?>
@@ -266,7 +269,7 @@ $locais = $localController->getLocaisPor("cidade, nome");
           <div class="">
             <div class="page-title">
               <div class="title_left">
-                <h3>Tables <small>Some examples to get you started</small></h3>
+                <h3>Tablela de Locais <small>Terminais que nossa companhia opera.</small></h3>
               </div>
 
               <div class="title_right">
@@ -287,7 +290,7 @@ $locais = $localController->getLocaisPor("cidade, nome");
               <div class="col-md-6 col-sm-6 col-xs-12">
                 <div class="x_panel">
                   <div class="x_title">
-                    <h2>Basic Tables <small>basic table subtitle</small></h2>
+                    <h2>Locais <small></small></h2>
                     <ul class="nav navbar-right panel_toolbox">
                       <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
                       </li>
@@ -310,31 +313,25 @@ $locais = $localController->getLocaisPor("cidade, nome");
                     <table class="table">
                       <thead>
                         <tr>
-                          <th>#</th>
-                          <th>First Name</th>
-                          <th>Last Name</th>
-                          <th>Username</th>
+                          <th>Código</th>
+                          <th>Terminal</th>
+                          <th>Cidade</th>
+                          <th>Latitude e Longitude</th>
                         </tr>
                       </thead>
                       <tbody>
-                        <tr>
-                          <th scope="row">1</th>
-                          <td>Mark</td>
-                          <td>Otto</td>
-                          <td>@mdo</td>
-                        </tr>
-                        <tr>
-                          <th scope="row">2</th>
-                          <td>Jacob</td>
-                          <td>Thornton</td>
-                          <td>@fat</td>
-                        </tr>
-                        <tr>
-                          <th scope="row">3</th>
-                          <td>Larry</td>
-                          <td>the Bird</td>
-                          <td>@twitter</td>
-                        </tr>
+                        <tbody>
+<?php
+
+foreach($locais as $v){
+    echo "<tr>";
+    foreach($v as $vv){
+        echo "<td>{$vv}</td>";
+    }
+    echo "<tr>";
+}
+echo "</table>";
+?>
                       </tbody>
                     </table>
 
@@ -343,64 +340,14 @@ $locais = $localController->getLocaisPor("cidade, nome");
               </div>
 
 
-              <div class="col-md-6 col-sm-6 col-xs-12">
-                <div class="x_panel">
-                  <div class="x_title">
-                    <h2>Stripped table <small>Stripped table subtitle</small></h2>
-                    <ul class="nav navbar-right panel_toolbox">
-                      <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
-                      </li>
-                      <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
-                        <ul class="dropdown-menu" role="menu">
-                          <li><a href="#">Settings 1</a>
-                          </li>
-                          <li><a href="#">Settings 2</a>
-                          </li>
-                        </ul>
-                      </li>
-                      <li><a class="close-link"><i class="fa fa-close"></i></a>
-                      </li>
-                    </ul>
-                    <div class="clearfix"></div>
-                  </div>
-                  <div class="x_content">
 
-                    <table class="table table-striped">
-                      <thead>
-                        <tr>
-                          <th>#</th>
-                          <th>First Name</th>
-                          <th>Last Name</th>
-                          <th>Username</th>
-                        </tr>
-                      </thead>
-                      <tbody>
-                        <tr>
-                          <th scope="row">1</th>
-                          <td>Mark</td>
-                          <td>Otto</td>
-                          <td>@mdo</td>
-                        </tr>
-                        <tr>
-                          <th scope="row">2</th>
-                          <td>Jacob</td>
-                          <td>Thornton</td>
-                          <td>@fat</td>
-                        </tr>
-                        <tr>
-                          <th scope="row">3</th>
-                          <td>Larry</td>
-                          <td>the Bird</td>
-                          <td>@twitter</td>
-                        </tr>
                       </tbody>
                     </table>
 
                   </div>
                 </div>
               </div>
-                <?php print_r($locais) ?>
+               
               <div class="clearfix"></div>
 
 

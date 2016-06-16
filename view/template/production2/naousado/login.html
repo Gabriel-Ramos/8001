@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <!-- Meta, title, CSS, favicons, etc. -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Auto Viação 8001</title>
+
+    <!-- Bootstrap -->
+    <link href="../vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link href="../vendors/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+    <!-- Animate.css -->
+    <link href="https://colorlib.com/polygon/gentelella/css/animate.min.css" rel="stylesheet">
+
+    <!-- Custom Theme Style -->
+    <link href="../build/css/custom.min.css" rel="stylesheet">
+
+      <script src="https://code.jquery.com/jquery-3.0.0.min.js"></script>
+      <script src="js/login.js"></script>
+
+      <script>
+          //$(function(){$(".alert-info").fadeIn();});
+      </script>
+
+      <style>
+          .notification-container{
+              width:350px;
+              height:35px;
+              margin-bottom:5px;
+          }
+          .alert{
+              margin:0 !important;
+              padding: 7px !important;
+              display: none;
+          }
+          .alert-info{
+                background-color: #d9edf7 !important;
+                border-color: #bce8f1 !important;
+                color: #73879C !important;
+
+          }
+          p.change_link{
+              margin: 0;
+          }
+      </style>
+
+  </head>
+
+  <body class="login">
+    <div>
+      <a class="hiddenanchor" id="signup"></a>
+      <a class="hiddenanchor" id="signin"></a>
+
+      <div class="login_wrapper">
+        <div class="animate form login_form">
+          <section class="login_content">
+            <form id="login-form">
+              <h1>Formulário de Login</h1>
+              <div>
+                <input id="cpf" type="text" class="form-control" placeholder="CPF" required="" />
+              </div>
+              <div>
+                <input id="senha" type="password" class="form-control" placeholder="Senha" required="" />
+              </div>
+              <div>
+                <a class="btn btn-default submit" href="javascript:login('Administrador');">Entrar</a>
+                <a class="reset_pass" href="#">Esqueceu sua senha?</a>
+              </div>
+
+              <div class="clearfix"></div>
+
+              <div class="separator">
+                  <div class="notification-container">
+                      <div class="alert alert-success">
+                          <strong>Successo!</strong>
+                      </div>
+
+                      <div class="alert alert-info">
+                          <strong>Autenticando...</strong><span style="margin-left:200px"><img src="images/loading.gif" alt="" height="16px" width="16px"/></span>
+                      </div>
+
+                      <div class="alert alert-warning">
+                          <strong>Warning!</strong> Indicates a warning that might need attention.
+                      </div>
+
+                      <div class="alert alert-danger">
+                          <strong>Falha durante a autenticação.</strong>
+                      </div>
+                  </div>
+                <p class="change_link">Novo no site?
+                  <a href="#signup" class="to_register"> Crie sua conta </a>
+                </p>
+                <div class="clearfix"></div>
+                  <br>
+                <div>
+                  <h1><i class="fa fa-bus"></i> Auto Viação 8001</h1>
+                  <p>©2016 Todos os direitos reservador. Auto Viação 8001. Termos e privacidade.</p>
+                </div>
+              </div>
+            </form>
+          </section>
+        </div>
+
+        <div id="register" class="animate form registration_form">
+          <section class="login_content">
+            <form>
+              <h1>Create Account</h1>
+              <div>
+                <input type="text" class="form-control" placeholder="Username" required="" />
+              </div>
+              <div>
+                <input type="email" class="form-control" placeholder="Email" required="" />
+              </div>
+              <div>
+                <input type="password" class="form-control" placeholder="Password" required="" />
+              </div>
+              <div>
+                <a class="btn btn-default submit" href="#">Submit</a>
+              </div>
+
+              <div class="clearfix"></div>
+
+              <div class="separator">
+                <p class="change_link">Already a member ?
+                  <a href="#signin" class="to_register"> Log in </a>
+                </p>
+
+                <div class="clearfix"></div>
+                <br />
+
+                <div>
+                  <h1><i class="fa fa-bus"></i> Gentelella Alela!</h1>
+                  <p>©2016 All Rights Reserved. Gentelella Alela! is a Bootstrap 3 template. Privacy and Terms</p>
+                </div>
+              </div>
+            </form>
+          </section>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

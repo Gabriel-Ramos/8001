@@ -168,7 +168,7 @@ verificaCredenciais("Administrador");
           <div class="">
             <div class="page-title">
               <div class="title_left">
-                <h3>Adicionar Local<small></small></h3>
+                <h3>Adicionar Veiculos<small></small></h3>
               </div>
 			
 				 <br>
@@ -199,13 +199,22 @@ if($link === false){
 }
  
 // Escape user inputs for security
-$first_name = mysqli_real_escape_string($link, $_POST['cod']);
-$last_name = mysqli_real_escape_string($link, $_POST['nome']);
-$email_address = mysqli_real_escape_string($link, $_POST['cidade']);
-$email_address2 = mysqli_real_escape_string($link, $_POST['posicao_global']);
+$Placa = mysqli_real_escape_string($link, $_POST['Placa']);
+$modelo = mysqli_real_escape_string($link, $_POST['modelo']);
+$fabricante = mysqli_real_escape_string($link, $_POST['fabricante']);
+$ano = mysqli_real_escape_string($link, $_POST['ano']);
+$numero_de_poltronas = mysqli_real_escape_string($link, $_POST['numero_de_poltronas']);
+$tipo_assento = mysqli_real_escape_string($link, $_POST['tipo_assento']);
+$possui_banheiro = mysqli_real_escape_string($link, $_POST['possui_banheiro']);
+$possui_ac = mysqli_real_escape_string($link, $_POST['possui_ac']);
+$possui_frigobar = mysqli_real_escape_string($link, $_POST['possui_frigobar']);
+$possui_wifi = mysqli_real_escape_string($link, $_POST['possui_wifi']);
+$possui_dvd = mysqli_real_escape_string($link, $_POST['possui_dvd']);
+$pposicao_global = mysqli_real_escape_string($link, $_POST['posicao_global']);
+ 
  
 // attempt insert query execution
-$sql = "INSERT INTO localidade (cod, nome, cidade, posicao_global) VALUES ('$first_name', '$last_name', '$email_address', '$email_address2')";
+$sql = "INSERT INTO veiculo (Placa, modelo, fabricante, ano, numero_de_poltronas, tipo_assento, possui_banheiro, possui_ac, possui_frigobar, possui_wifi, possui_dvd, posicao_global) VALUES ('$Placa`, `$modelo`, `$fabricante`, `$ano`, `$numero_de_poltronas`, `$tipo_assento`, `$possui_banheiro`, `$possui_ac`, `$possui_frigobar`, `$possui_wifi`, `$possui_dvd`, `$posicao_global`)";
 if(mysqli_query($link, $sql)){
     echo "<h1>Adicionado!</h1>";
 } else{
@@ -226,26 +235,62 @@ mysqli_close($link);
                <form method = "post" action = "<?php $_PHP_SELF ?>">
                   <table width = "400" border = "0" cellspacing = "1" 
                      cellpadding = "2">
-              
+
                      <tr>
-                        <td width = "100">Codigo </td>
-                        <td><input name = "cod" type = "text" 
-                           id = "cod"></td>
+                        <td width = "100">Placa </td>
+                        <td><input name = "Placa" type = "text" 
+                           id = "Placa"></td>
                      </tr>
               
                      <tr>
-                        <td width = "100">Nome</td>
-                        <td><input name = "nome" type = "text" 
-                           id = "nome"></td>
+                        <td width = "100">Modelo</td>
+                        <td><input name = "modelo" type = "text" 
+                           id = "modelo"></td>
                      </tr>
                    
                      <tr>
-                        <td width = "100">Cidade</td>
-                        <td><input name = "cidade" type = "text" 
-                           id = "cidade"></td>
+                        <td width = "100">Fabricante</td>
+                        <td><input name = "fabricante" type = "text" 
+                           id = "fabricante"></td>
                      </tr>
 					  <tr>
-                        <td width = "100">Lagitude e Longitude</td>
+                        <td width = "100">ano</td>
+                        <td><input name = "ano" type = "text" 
+                           id = "ano"></td>
+                     </tr>
+					 	  <tr>
+                        <td width = "100">numero_de_poltronas</td>
+                        <td><input name = "numero_de_poltronas" type = "text" 
+                           id = "numero_de_poltronas"></td>
+                     </tr>
+					 
+
+					  <td width = "100">tipo_assento</td>
+                        <td><input name = "tipo_assento" type = "text" 
+                           id = "tipo_assento"></td>
+                     </tr>
+					  <td width = "100">possui_banheiro</td>
+                        <td><input name = "possui_banheiro" type = "text" 
+                           id = "possui_banheiro"></td>
+                     </tr>
+					  <td width = "100">possui_ac</td>
+                        <td><input name = "possui_ac" type = "text" 
+                           id = "possui_ac"></td>
+                     </tr>
+					  <td width = "100">possui_frigobar</td>
+                        <td><input name = "possui_frigobar" type = "text" 
+                           id = "possui_frigobar"></td>
+                     </tr>
+					  <td width = "100">possui_wifi</td>
+                        <td><input name = "possui_wifi" type = "text" 
+                           id = "possui_wifi"></td>
+                     </tr>
+					  <td width = "100">possui_dvd</td>
+                        <td><input name = "possui_dvd" type = "text" 
+                           id = "possui_dvd"></td>
+                     </tr>
+		
+					  <td width = "100">posicao_global</td>
                         <td><input name = "posicao_global" type = "text" 
                            id = "posicao_global"></td>
                      </tr>

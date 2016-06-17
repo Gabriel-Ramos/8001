@@ -178,7 +178,7 @@ $locais = $localController->getLocaisPor("cidade, nome");
           <div class="">
             <div class="page-title">
               <div class="title_left">
-                <h3>Tablela de Locais <small>Terminais que nossa companhia opera.</small></h3>
+                <h3>Tablela de Locais <small></small></h3>
               </div>
 
               <div class="title_right">

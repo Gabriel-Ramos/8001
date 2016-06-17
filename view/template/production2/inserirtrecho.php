@@ -168,7 +168,7 @@ verificaCredenciais("Administrador");
           <div class="">
             <div class="page-title">
               <div class="title_left">
-                <h3>Adicionar Local<small></small></h3>
+                <h3>Adicionar trecho<small></small></h3>
               </div>
 			
 				 <br>
@@ -199,13 +199,15 @@ if($link === false){
 }
  
 // Escape user inputs for security
-$first_name = mysqli_real_escape_string($link, $_POST['cod']);
-$last_name = mysqli_real_escape_string($link, $_POST['nome']);
-$email_address = mysqli_real_escape_string($link, $_POST['cidade']);
-$email_address2 = mysqli_real_escape_string($link, $_POST['posicao_global']);
+$id = mysqli_real_escape_string($link, $_POST['id']);
+$distancia = mysqli_real_escape_string($link, $_POST['distancia']);
+$itinerario = mysqli_real_escape_string($link, $_POST['itinerario']);
+$valor = mysqli_real_escape_string($link, $_POST['valor']);
+$local_destino = mysqli_real_escape_string($link, $_POST['local_destino']);
+$local_saida = mysqli_real_escape_string($link, $_POST['local_saida']);
  
 // attempt insert query execution
-$sql = "INSERT INTO localidade (cod, nome, cidade, posicao_global) VALUES ('$first_name', '$last_name', '$email_address', '$email_address2')";
+$sql = "INSERT INTO trecho (id, distancia, itinerario, valor, local_destino, local_saida) VALUES (`$id`, `$distancia`, `$itinerario`, `$valor`, `$local_destino`, `$local_saida`)";
 if(mysqli_query($link, $sql)){
     echo "<h1>Adicionado!</h1>";
 } else{
@@ -226,29 +228,41 @@ mysqli_close($link);
                <form method = "post" action = "<?php $_PHP_SELF ?>">
                   <table width = "400" border = "0" cellspacing = "1" 
                      cellpadding = "2">
-              
+
                      <tr>
                         <td width = "100">Codigo </td>
-                        <td><input name = "cod" type = "text" 
-                           id = "cod"></td>
+                        <td><input name = "id" type = "text" 
+                           id = "id"></td>
                      </tr>
               
                      <tr>
-                        <td width = "100">Nome</td>
-                        <td><input name = "nome" type = "text" 
-                           id = "nome"></td>
+                        <td width = "100">distancia</td>
+                        <td><input name = "distancia" type = "text" 
+                           id = "distancia"></td>
                      </tr>
                    
                      <tr>
-                        <td width = "100">Cidade</td>
-                        <td><input name = "cidade" type = "text" 
-                           id = "cidade"></td>
+                        <td width = "100">itinerario</td>
+                        <td><input name = "itinerario" type = "text" 
+                           id = "citinerario"></td>
                      </tr>
 					  <tr>
-                        <td width = "100">Lagitude e Longitude</td>
-                        <td><input name = "posicao_global" type = "text" 
-                           id = "posicao_global"></td>
+                        <td width = "100">valor</td>
+                        <td><input name = "valor" type = "text" 
+                           id = "valor"></td>
                      </tr>
+					 					  <tr>
+                        <td width = "100">local_destino</td>
+                        <td><input name = "local_destino" type = "text" 
+                           id = "local_destino"></td>
+                     </tr>
+               
+			   					  <tr>
+                        <td width = "100">local_saida</td>
+                        <td><input name = "local_saida" type = "text" 
+                           id = "local_saida"></td>
+                     </tr>
+               
                
                      <tr>
                         <td width = "100"> </td>

@@ -1,9 +1,8 @@
 <?php
 /**
  * Created by PhpStorm.
- * User: Renard
- * Date: 11/06/2016
- * Time: 18:37
+ * User: Gabriel Ramos
+
  */
 
 class Pessoa {
@@ -18,4 +17,18 @@ class Pessoa {
     public $estado;
     public $ddd;
     public $telefone;
+	
+	public function preenchePorArray($row){
+        $this->cpf = $row["cpf"];
+        $this->nome = $row["nome"];
+        $this->data_nascimento = $row["data_nascimento"];
+        $this->cep = $row["cep"];
+		$this->endereco = $row["endereco"];
+		$this->complemento = $row["complemento"];
+        $this->bairro = $row["bairro"];
+        $this->cidade = $row["cidade"];
+        $this->estado = $row["estado"];
+		$this->ddd = $row["ddd"];
+		$this->telefone = $row["telefone"];
+    }
 }

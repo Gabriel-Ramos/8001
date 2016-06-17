@@ -1,11 +1,24 @@
 <?php
 /**
  * Created by PhpStorm.
- * User: Renard
- * Date: 11/06/2016
- * Time: 18:05
+ * User: Gabriel Ramos
+
  */
 
 class Trecho {
+    public $id;
+    public $distancia;
+    public $itinerario;
+    public $valor;
+	public $local_destino;
+	public $local_saida;
 
+    public function preenchePorArray($row){
+        $this->id = $row["id"];
+        $this->distancia = $row["distancia"];
+        $this->itinerario = $row["itinerario"];
+        $this->valor = $row["valor"];
+		$this->local_destino = $row["local_destino"];
+		$this->local_saida = $row["local_saida"];
+    }
 }

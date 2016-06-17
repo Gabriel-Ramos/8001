@@ -86,7 +86,7 @@ verificaCredenciais("Administrador");
                   <li><a><i class="fa fa-ticket"></i> Bilhetes <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
                         <li><a href="bilhetes.php">Informações</a></li>
-                      <li><a href="inserirbilhetes.html">Inserir Bilhetes</a></li>
+                      <li><a href="inserirbilhetes.php">Inserir Bilhetes</a></li>
                     </ul>
                   </li>
                   <li><a><i class="fa fa-map-signs"></i>Trechos <span class="fa fa-chevron-down"></span></a>
@@ -97,7 +97,7 @@ verificaCredenciais("Administrador");
                   </li>
                   <li><a><i class="fa fa-map-marker"></i>Locais <span class="fa fa-chevron-down"></span></a>
                         <ul class="nav child_menu">
-                            <li><a href="local.php">Informações</a></li>
+                            <li><a href="locais.php">Informações</a></li>
                             <li><a href="inserir_local.php">Inserir Local</a></li>
                         </ul>
                   </li>
@@ -168,7 +168,12 @@ verificaCredenciais("Administrador");
           <div class="">
             <div class="page-title">
               <div class="title_left">
-                <h3>INICIO<small></small></h3>
+			  <br>
+			  <br>
+			  <br>
+			  <br>
+                <h3>				Bem vindo Administrador,<br><br><br>
+				Por favor escolha nas abas na direita a funcao que voce deseja.</h3>
               </div>
 			
 				 <br>
@@ -185,14 +190,7 @@ verificaCredenciais("Administrador");
               </div>
             </div>
 			  <br>
-			  <h1 style="color:blue;">
-			  <a href="local.php"> Local</a></li>
-			   <br>
-			  <a href="viagem.php"> Viagem</a></li>
-			     <br>
-			  <a href="inserir_local.php"> Inserir Local</a></li>
 
-				</h1>
 
   
 

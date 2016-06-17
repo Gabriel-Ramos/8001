@@ -1,10 +1,5 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: Renard
- * Date: 11/06/2016
- * Time: 18:41
- */
+
 require_once(__DIR__."/../data-access/LocalDAO.php");
 require_once(__DIR__."/../model/Local.php");
 

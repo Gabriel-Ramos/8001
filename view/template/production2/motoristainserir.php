@@ -168,7 +168,7 @@ verificaCredenciais("Administrador");
           <div class="">
             <div class="page-title">
               <div class="title_left">
-                <h3>Adicionar Local<small></small></h3>
+                <h3>Adicionar Motorista<small></small></h3>
               </div>
 			
 				 <br>
@@ -199,13 +199,15 @@ if($link === false){
 }
  
 // Escape user inputs for security
-$first_name = mysqli_real_escape_string($link, $_POST['cod']);
-$last_name = mysqli_real_escape_string($link, $_POST['nome']);
-$email_address = mysqli_real_escape_string($link, $_POST['cidade']);
-$email_address2 = mysqli_real_escape_string($link, $_POST['posicao_global']);
+$cpf = mysqli_real_escape_string($link, $_POST['cpf']);
+$matricula = mysqli_real_escape_string($link, $_POST['matricula']);
+$cnh = mysqli_real_escape_string($link, $_POST['cnh']);
+$emissao_cnh = mysqli_real_escape_string($link, $_POST['emissao_cnh']);
+$validadade_cnh = mysqli_real_escape_string($link, $_POST['validadade_cnh']);
+$data_admissao = mysqli_real_escape_string($link, $_POST['data_admissao']);
  
 // attempt insert query execution
-$sql = "INSERT INTO localidade (cod, nome, cidade, posicao_global) VALUES ('$first_name', '$last_name', '$email_address', '$email_address2')";
+$sql = "INSERT INTO motorista ( cpf, matricula, cnh, emissao_cnh, validadade_cnh, data_admissao) VALUES (`$cpf`, `$matricula`, `$cnh`, `$emissao_cnh`, `$validadade_cnh`, `$data_admissao`)";
 if(mysqli_query($link, $sql)){
     echo "<h1>Adicionado!</h1>";
 } else{
@@ -226,26 +228,36 @@ mysqli_close($link);
                <form method = "post" action = "<?php $_PHP_SELF ?>">
                   <table width = "400" border = "0" cellspacing = "1" 
                      cellpadding = "2">
-              
+
                      <tr>
-                        <td width = "100">Codigo </td>
+                        <td width = "100">CPF </td>
                         <td><input name = "cod" type = "text" 
                            id = "cod"></td>
                      </tr>
               
                      <tr>
-                        <td width = "100">Nome</td>
+                        <td width = "100">Matricula</td>
                         <td><input name = "nome" type = "text" 
                            id = "nome"></td>
                      </tr>
                    
                      <tr>
-                        <td width = "100">Cidade</td>
+                        <td width = "100">cnh</td>
                         <td><input name = "cidade" type = "text" 
                            id = "cidade"></td>
                      </tr>
 					  <tr>
-                        <td width = "100">Lagitude e Longitude</td>
+                        <td width = "100">emissao cnh</td>
+                        <td><input name = "posicao_global" type = "text" 
+                           id = "posicao_global"></td>
+                     </tr>
+					 					  <tr>
+                        <td width = "100">validadade cnh</td>
+                        <td><input name = "posicao_global" type = "text" 
+                           id = "posicao_global"></td>
+                     </tr>
+					 					  <tr>
+                        <td width = "100">data admissao</td>
                         <td><input name = "posicao_global" type = "text" 
                            id = "posicao_global"></td>
                      </tr>

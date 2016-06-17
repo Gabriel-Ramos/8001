@@ -2,16 +2,15 @@
 include("../../verificador_sessao.php");
 verificaCredenciais("Administrador");
 
-require_once("../../../controller/LocalController.php");
+require_once("../../../controller/BilheteController.php");
 
 
-$localController = LocalController::getInstance();
-$locais = $localController->getLocaisPor("cidade, nome");
+$BilheteController = BilheteController::getInstance();
+$locais = $BilheteController->getBilhetePor("id_viagem");
 
 
 
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -88,7 +87,7 @@ $locais = $localController->getLocaisPor("cidade, nome");
                   </li>
                   <li><a><i class="fa fa-calendar"></i> Viagens <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
-                      <li><a href="viagem.php">Informações</a></li>
+                      <li><a href="Viagem.php">Informações</a></li>
                       <li><a href="inserirviagens.php">Inserir Viagens</a></li>
                     </ul>
                   </li>
@@ -174,11 +173,11 @@ $locais = $localController->getLocaisPor("cidade, nome");
 
         <!-- page content -->
         <!-- page content -->
-        <div class="right_col" role="main">
+       <div class="right_col" role="main">
           <div class="">
             <div class="page-title">
               <div class="title_left">
-                <h3>Tablela de Locais <small>Terminais que nossa companhia opera.</small></h3>
+                <h3>Bilhetes <small>Terminais que nossa companhia opera.</small></h3>
               </div>
 
               <div class="title_right">
@@ -199,7 +198,7 @@ $locais = $localController->getLocaisPor("cidade, nome");
               <div class="col-md-6 col-sm-6 col-xs-12">
                 <div class="x_panel">
                   <div class="x_title">
-                    <h2>Locais <small></small></h2>
+                    <h2>Bilhetes oferecidos por nossa companhia.<small></small></h2>
                     <ul class="nav navbar-right panel_toolbox">
                       <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
                       </li>
@@ -223,9 +222,10 @@ $locais = $localController->getLocaisPor("cidade, nome");
                       <thead>
                         <tr>
                           <th>Código</th>
-                          <th>Terminal</th>
-                          <th>Cidade</th>
-                          <th>Latitude e Longitude</th>
+                          <th>Poltrona</th>
+                          <th>CPF</th>
+                          <th>Trecho de embarque</th>
+						  <th>Trecho de desembarque</th>
                         </tr>
                       </thead>
                       <tbody>

@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 18, 2016 at 12:02 AM
+-- Generation Time: Jun 14, 2016 at 10:45 PM
 -- Server version: 10.1.13-MariaDB
 -- PHP Version: 5.6.21
 
@@ -52,13 +52,6 @@ CREATE TABLE `bilhete` (
   `trecho_de_desembarque` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
---
--- Dumping data for table `bilhete`
---
-
-INSERT INTO `bilhete` (`id_viagem`, `poltrona`, `cpf`, `trecho_de_embarque`, `trecho_de_desembarque`) VALUES
-(12012, '12', '05747730703', 456546, 456546);
-
 -- --------------------------------------------------------
 
 --
@@ -69,13 +62,6 @@ CREATE TABLE `cliente` (
   `cpf` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `senha` varchar(255) COLLATE utf8_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
-
---
--- Dumping data for table `cliente`
---
-
-INSERT INTO `cliente` (`cpf`, `senha`) VALUES
-('05747730703', '4645645654');
 
 -- --------------------------------------------------------
 
@@ -97,9 +83,7 @@ CREATE TABLE `localidade` (
 INSERT INTO `localidade` (`cod`, `nome`, `cidade`, `posicao_global`) VALUES
 ('ANGRA', 'Terminal Rodoviário Vereador Niltom Barbosa - Rodoviária de Angra dos Reis', 'Angra dos Reis', '-23.002803 -44.3062287'),
 ('CABOFRIO', 'Terminal Rodoviário Aléxis Novellino - Rodoviária de Cabo Frio', 'Cabo Frio', '-22.8821541 -42.0319296'),
-('gabriel', 'gabriel', 'gabriel', '12332'),
 ('PARATY', 'Terminal Rodoviário de Paraty', 'Paraty', '-23.2213744 -44.7188026'),
-('ramos', 'asdasd', 'asdasd', '123546'),
 ('RIO', 'Terminal Rodoviário do Rio de Janeiro - Rodoviária Novo Rio', 'Rio de Janeiro', '-22.9012 -43.2057'),
 ('SANTOS', 'Santos', 'Santos', '-23.9353291 -46.3349617'),
 ('SAOPAULO', 'Terminal Rodoviário do Tietê', 'São Paulo', '-23.516264 -46.624055'),
@@ -173,13 +157,6 @@ CREATE TABLE `trecho` (
   `local_destino` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `local_saida` varchar(255) COLLATE utf8_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
-
---
--- Dumping data for table `trecho`
---
-
-INSERT INTO `trecho` (`id`, `distancia`, `itinerario`, `valor`, `local_destino`, `local_saida`) VALUES
-(456546, 456546, 'RIo-SP', 400, 'RIO', 'SAOPAULO');
 
 -- --------------------------------------------------------
 
@@ -323,7 +300,7 @@ ALTER TABLE `viagem_trecho`
 -- AUTO_INCREMENT for table `trecho`
 --
 ALTER TABLE `trecho`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=456547;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT for table `viagem`
 --

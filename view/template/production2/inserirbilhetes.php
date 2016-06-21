@@ -168,7 +168,7 @@ verificaCredenciais("Administrador");
           <div class="">
             <div class="page-title">
               <div class="title_left">
-                <h3>Adicionar Bilhetes<small></small></h3>
+                <h3>Adicionar Local<small></small></h3>
               </div>
 			
 				 <br>
@@ -199,16 +199,13 @@ if($link === false){
 }
  
 // Escape user inputs for security
-$id_viagem = mysqli_real_escape_string($link, $_POST['id_viagem']);
-$poltrona= mysqli_real_escape_string($link, $_POST['poltrona']);
-$cpf = mysqli_real_escape_string($link, $_POST['cpf']);
-$trecho_de_embarque = mysqli_real_escape_string($link, $_POST['trecho_de_embarque']);
-$trecho_de_desembarque = mysqli_real_escape_string($link, $_POST['trecho_de_desembarque']);
-
- 
+$first_name = mysqli_real_escape_string($link, $_POST['cod']);
+$last_name = mysqli_real_escape_string($link, $_POST['nome']);
+$email_address = mysqli_real_escape_string($link, $_POST['cidade']);
+$email_address2 = mysqli_real_escape_string($link, $_POST['posicao_global']);
  
 // attempt insert query execution
-$sql = "INSERT INTO bilhete (id_viagem, poltrona, cpf, trecho_de_embarque, trecho_de_desembarque) VALUES (`$id_viagem`, `$poltrona`, `$cpf`, `$trecho_de_embarque`, `$trecho_de_desembarque`)";
+$sql = "INSERT INTO localidade (cod, nome, cidade, posicao_global) VALUES ('$first_name', '$last_name', '$email_address', '$email_address2')";
 if(mysqli_query($link, $sql)){
     echo "<h1>Adicionado!</h1>";
 } else{
@@ -229,34 +226,30 @@ mysqli_close($link);
                <form method = "post" action = "<?php $_PHP_SELF ?>">
                   <table width = "400" border = "0" cellspacing = "1" 
                      cellpadding = "2">
-    
+              
                      <tr>
                         <td width = "100">Codigo </td>
-                        <td><input name = "id_viagem" type = "text" 
-                           id = "id_viagem"></td>
+                        <td><input name = "cod" type = "text" 
+                           id = "cod"></td>
                      </tr>
               
                      <tr>
-                        <td width = "100">poltrona</td>
-                        <td><input name = "poltrona" type = "text" 
-                           id = "poltrona"></td>
+                        <td width = "100">Nome</td>
+                        <td><input name = "nome" type = "text" 
+                           id = "nome"></td>
                      </tr>
                    
                      <tr>
-                        <td width = "100">cpf</td>
-                        <td><input name = "cpf" type = "text" 
-                           id = "cpf"></td>
+                        <td width = "100">Cidade</td>
+                        <td><input name = "cidade" type = "text" 
+                           id = "cidade"></td>
                      </tr>
 					  <tr>
-                        <td width = "100">trecho_de_embarque</td>
-                        <td><input name = "trecho_de_embarque" type = "text" 
-                           id = "trecho_de_embarque"></td>
+                        <td width = "100">Lagitude e Longitude</td>
+                        <td><input name = "posicao_global" type = "text" 
+                           id = "posicao_global"></td>
                      </tr>
-               					  <tr>
-                        <td width = "100">trecho_de_desembarque</td>
-                        <td><input name = "trecho_de_desembarque" type = "text" 
-                           id = "trecho_de_desembarque"></td>
-                     </tr>
+               
                      <tr>
                         <td width = "100"> </td>
                         <td> </td>

@@ -1,9 +1,11 @@
 <?php
 /**
  * Created by PhpStorm.
- * User: Gabriel Ramos
-
+ * User: Renard
+ * Date: 11/06/2016
+ * Time: 18:04
  */
+
 class Local {
     public $cod;
     public $nome;

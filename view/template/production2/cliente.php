@@ -2,15 +2,16 @@
 include("../../verificador_sessao.php");
 verificaCredenciais("Administrador");
 
-require_once("../../../controller/ClienteController.php");
+require_once("../../../controller/LocalController.php");
 
 
-$ClienteController = ClienteController::getInstance();
-$locais = $ClienteController->getClientePor("cpf");
+$localController = LocalController::getInstance();
+$locais = $localController->getLocaisPor("cidade, nome");
 
 
 
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -87,7 +88,7 @@ $locais = $ClienteController->getClientePor("cpf");
                   </li>
                   <li><a><i class="fa fa-calendar"></i> Viagens <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
-                      <li><a href="Viagem.php">Informações</a></li>
+                      <li><a href="viagem.php">Informações</a></li>
                       <li><a href="inserirviagens.php">Inserir Viagens</a></li>
                     </ul>
                   </li>
@@ -173,11 +174,11 @@ $locais = $ClienteController->getClientePor("cpf");
 
         <!-- page content -->
         <!-- page content -->
-       <div class="right_col" role="main">
+        <div class="right_col" role="main">
           <div class="">
             <div class="page-title">
               <div class="title_left">
-                <h3>Clientes<small></small></h3>
+                <h3>Tablela de Locais <small>Terminais que nossa companhia opera.</small></h3>
               </div>
 
               <div class="title_right">
@@ -198,7 +199,7 @@ $locais = $ClienteController->getClientePor("cpf");
               <div class="col-md-6 col-sm-6 col-xs-12">
                 <div class="x_panel">
                   <div class="x_title">
-                    <h2>Clientes de nossa companhia e suas senhas. <small></small></h2>
+                    <h2>Locais <small></small></h2>
                     <ul class="nav navbar-right panel_toolbox">
                       <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
                       </li>
@@ -221,8 +222,10 @@ $locais = $ClienteController->getClientePor("cpf");
                     <table class="table">
                       <thead>
                         <tr>
-                          <th>CPF</th>
-                          <th>Senha</th>
+                          <th>Código</th>
+                          <th>Terminal</th>
+                          <th>Cidade</th>
+                          <th>Latitude e Longitude</th>
                         </tr>
                       </thead>
                       <tbody>

@@ -168,7 +168,7 @@ verificaCredenciais("Administrador");
           <div class="">
             <div class="page-title">
               <div class="title_left">
-                <h3>Adicionar Viagem<small></small></h3>
+                <h3>Adicionar Local<small></small></h3>
               </div>
 			
 				 <br>
@@ -199,14 +199,13 @@ if($link === false){
 }
  
 // Escape user inputs for security
-$id = mysqli_real_escape_string($link, $_POST['id']);
-$cpf_motorista = mysqli_real_escape_string($link, $_POST['cpf_motorista']);
-$placa_veiculo = mysqli_real_escape_string($link, $_POST['placa_veiculo']);
-$hora_saida = mysqli_real_escape_string($link, $_POST['hora_saida']);
-$hora_chegada = mysqli_real_escape_string($link, $_POST['hora_chegada']);
-
+$first_name = mysqli_real_escape_string($link, $_POST['cod']);
+$last_name = mysqli_real_escape_string($link, $_POST['nome']);
+$email_address = mysqli_real_escape_string($link, $_POST['cidade']);
+$email_address2 = mysqli_real_escape_string($link, $_POST['posicao_global']);
+ 
 // attempt insert query execution
-$sql = "INSERT INTO viagem (id, cpf_motorista, placa_veiculo, hora_saida, hora_chegada) VALUES ( `$id`, `$cpf_motorista`, `$placa_veiculo`, `$hora_saida`, `$hora_chegada`)";
+$sql = "INSERT INTO localidade (cod, nome, cidade, posicao_global) VALUES ('$first_name', '$last_name', '$email_address', '$email_address2')";
 if(mysqli_query($link, $sql)){
     echo "<h1>Adicionado!</h1>";
 } else{
@@ -227,34 +226,28 @@ mysqli_close($link);
                <form method = "post" action = "<?php $_PHP_SELF ?>">
                   <table width = "400" border = "0" cellspacing = "1" 
                      cellpadding = "2">
-
+              
                      <tr>
                         <td width = "100">Codigo </td>
-                        <td><input name = "id" type = "text" 
-                           id = "id"></td>
+                        <td><input name = "cod" type = "text" 
+                           id = "cod"></td>
                      </tr>
               
                      <tr>
-                        <td width = "100">cpf_motorista</td>
-                        <td><input name = "cpf_motorista" type = "text" 
-                           id = "cpf_motorista"></td>
+                        <td width = "100">Nome</td>
+                        <td><input name = "nome" type = "text" 
+                           id = "nome"></td>
                      </tr>
                    
                      <tr>
-                        <td width = "100">placa_veiculo</td>
-                        <td><input name = "placa_veiculo" type = "text" 
-                           id = "cplaca_veiculo"></td>
+                        <td width = "100">Cidade</td>
+                        <td><input name = "cidade" type = "text" 
+                           id = "cidade"></td>
                      </tr>
 					  <tr>
-                        <td width = "100">hora_saida</td>
-                        <td><input name = "hora_saida" type = "text" 
-                           id = "hora_saida"></td>
-                     </tr>
-					          </tr>
-					  <tr>
-                        <td width = "100">hora_chegada</td>
-                        <td><input name = "hora_chegada" type = "text" 
-                           id = "hora_chegada"></td>
+                        <td width = "100">Lagitude e Longitude</td>
+                        <td><input name = "posicao_global" type = "text" 
+                           id = "posicao_global"></td>
                      </tr>
                
                      <tr>

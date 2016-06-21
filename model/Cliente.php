@@ -1,16 +1,11 @@
 <?php
 /**
  * Created by PhpStorm.
- * User: Gabriel Ramos
-
+ * User: Renard
+ * Date: 11/06/2016
+ * Time: 18:05
  */
-class Cliente {
-    public $cpf;
-    public $senha;
 
-    public function preenchePorArray($row){
-        $this->cpf = $row["cpf"];
-        $this->senha = $row["senha"];
-    }
+class Cliente {
 
 }

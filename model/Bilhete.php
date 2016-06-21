@@ -1,22 +1,11 @@
 <?php
 /**
  * Created by PhpStorm.
- * User: Gabriel Ramos
-
+ * User: Renard
+ * Date: 11/06/2016
+ * Time: 18:05
  */
-class Bilhete {
-    public $id_viagem;
-    public $poltrona;
-    public $cpf;
-    public $trecho_de_embarque;
-	public $trecho_de_desembarque;
 
-    public function preenchePorArray($row){
-        $this->id_viagem = $row["id_viagem"];
-        $this->poltrona = $row["poltrona"];
-        $this->cpf = $row["cpf"];
-        $this->trecho_de_embarque = $row["trecho_de_embarque"];
-		$this->trecho_de_desembarque = $row["trecho_de_desembarque"];
-    }
+class Bilhete {
 
 }
